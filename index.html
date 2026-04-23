@@ -21,7 +21,7 @@
         /* ========== HEADER ========== */
         header {
             background: white;
-            padding: 14px 20px;
+            padding: 10px 20px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
@@ -30,9 +30,10 @@
             justify-content: space-between;
             align-items: center;
         }
-        .logo { line-height: 1.2; }
-        .logo-ja { font-size: 20px; font-weight: 900; color: var(--blue); }
-        .logo-en { font-size: 10px; color: #aaa; letter-spacing: 3px; }
+        .logo img {
+            height: 48px;
+            width: auto;
+        }
         .header-cta {
             background: var(--green-line);
             color: white;
@@ -41,14 +42,23 @@
             text-decoration: none;
             font-size: 13px;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         /* ========== HERO ========== */
         .hero {
-            background: linear-gradient(160deg, var(--blue-light) 0%, #fff 70%);
-            padding: 56px 24px 48px;
-            text-align: center;
+            background: linear-gradient(160deg, var(--blue-light) 0%, #fff 60%);
+            padding: 40px 24px 48px;
         }
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            align-items: center;
+        }
+        .hero-text { text-align: center; width: 100%; }
         .hero-badge {
             display: inline-block;
             background: var(--yellow);
@@ -60,7 +70,7 @@
             margin-bottom: 20px;
         }
         .hero h1 {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
             color: var(--blue);
             line-height: 1.5;
@@ -70,15 +80,23 @@
             font-size: 15px;
             color: var(--gray);
             line-height: 1.9;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
+        }
+        .hero-img img {
+            width: 100%;
+            max-width: 480px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(26,110,181,0.15);
+            display: block;
+            margin: 0 auto;
         }
         .btn-line-lg {
             display: inline-block;
             background: var(--green-line);
             color: white;
-            padding: 18px 40px;
+            padding: 16px 36px;
             border-radius: 50px;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: bold;
             text-decoration: none;
             box-shadow: 0 6px 20px rgba(6,199,85,0.35);
@@ -86,21 +104,33 @@
 
         /* ========== SECTION BASE ========== */
         section { padding: 52px 24px; }
-        .sec-title {
+        .sec-head-img {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .sec-head-img img {
+            max-width: 360px;
+            width: 75%;
+            height: auto;
+        }
+        .inner { max-width: 640px; margin: 0 auto; }
+
+        /* ========== DANGERS ========== */
+        .dangers { background: #fff5f5; }
+        .danger-sec-title {
             text-align: center;
             font-size: 22px;
             font-weight: 900;
-            color: var(--blue);
+            color: #c0392b;
             margin-bottom: 6px;
         }
-        .sec-en {
+        .danger-sec-en {
             text-align: center;
             font-size: 11px;
-            color: #aaa;
+            color: #e08080;
             letter-spacing: 3px;
             margin-bottom: 32px;
         }
-        .inner { max-width: 640px; margin: 0 auto; }
 
         /* ========== REASONS ========== */
         .reasons { background: white; }
@@ -131,6 +161,18 @@
 
         /* ========== SERVICES ========== */
         .services { background: #f8f9fa; }
+        .service-visual {
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .service-visual img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
         .service-list { display: flex; flex-direction: column; gap: 14px; }
         .service-card {
             background: white;
@@ -181,8 +223,16 @@
         .profile-card {
             background: white;
             border-radius: 16px;
-            padding: 28px 24px;
+            overflow: hidden;
         }
+        .profile-img-banner img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center 30%;
+            display: block;
+        }
+        .profile-content { padding: 28px 24px; }
         .profile-row {
             display: flex;
             gap: 18px;
@@ -219,7 +269,14 @@
         /* ========== AREA ========== */
         .area { background: white; text-align: center; }
         .area-main { font-size: 24px; font-weight: bold; color: var(--blue); margin-bottom: 10px; }
-        .area-cities { font-size: 13px; color: var(--gray); line-height: 2; }
+        .area-cities { font-size: 13px; color: var(--gray); line-height: 2; margin-bottom: 24px; }
+        .area-map {
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            margin-top: 24px;
+        }
+        .area-map img { width: 100%; display: block; }
 
         /* ========== FAQ ========== */
         .faq { background: #f8f9fa; }
@@ -249,6 +306,8 @@
             padding: 52px 24px;
             text-align: center;
         }
+        .contact-head-img { margin-bottom: 20px; }
+        .contact-head-img img { max-width: 300px; width: 60%; height: auto; filter: brightness(0) invert(1); }
         .contact h2 { color: white; font-size: 22px; margin-bottom: 10px; }
         .contact p { color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.9; margin-bottom: 32px; }
         .contact-btns {
@@ -290,32 +349,56 @@
         /* ========== PC ========== */
         @media (min-width: 640px) {
             body { font-size: 17px; }
-            header { padding: 18px 60px; }
-            .logo-ja { font-size: 26px; }
+            header { padding: 12px 60px; }
+            .logo img { height: 60px; }
             .header-cta { font-size: 15px; padding: 12px 24px; }
-            .hero { padding: 90px 40px 80px; }
-            .hero h1 { font-size: 48px; }
-            .hero p { font-size: 18px; }
+
+            /* Hero 2-column */
+            .hero { padding: 60px 40px 70px; }
+            .hero-inner {
+                flex-direction: row;
+                gap: 48px;
+                text-align: left;
+                align-items: center;
+            }
+            .hero-text { text-align: left; flex: 1; }
+            .hero-img { flex: 1; }
+            .hero h1 { font-size: 42px; }
+            .hero p { font-size: 17px; }
             .hero-badge { font-size: 14px; padding: 6px 20px; }
-            .btn-line-lg { font-size: 20px; padding: 22px 52px; }
+            .btn-line-lg { font-size: 19px; padding: 20px 48px; }
+
             section { padding: 72px 40px; }
-            .sec-title { font-size: 30px; }
-            .sec-en { font-size: 13px; margin-bottom: 40px; }
+            .sec-head-img { margin-bottom: 40px; }
+            .sec-head-img img { max-width: 480px; width: 60%; }
             .inner { max-width: 860px; }
+
+            .danger-sec-title { font-size: 30px; }
+
             .reason-list { flex-direction: row; flex-wrap: wrap; gap: 20px; }
             .reason-card { flex: 1; min-width: 220px; padding: 28px; }
             .reason-card h3 { font-size: 18px; margin-bottom: 10px; }
             .reason-card p { font-size: 15px; line-height: 2; }
             .reason-num { width: 44px; height: 44px; font-size: 20px; }
+
+            .service-visual img { height: 280px; }
             .service-card { padding: 28px 28px 28px 32px; }
             .service-card h3 { font-size: 20px; margin-bottom: 12px; }
             .service-card p { font-size: 15px; line-height: 2; }
+
             .flow-step h3 { font-size: 18px; }
             .flow-step p { font-size: 15px; line-height: 2; }
+
+            .profile-img-banner img { height: 280px; }
             .profile-name { font-size: 24px; }
             .profile-text { font-size: 16px; }
             .staff-text { font-size: 15px; }
+
+            .area-main { font-size: 28px; }
+            .area-cities { font-size: 15px; }
+
             .faq-q span, .faq-a span { font-size: 16px; }
+
             .contact h2 { font-size: 30px; }
             .contact p { font-size: 16px; }
             .btn-line, .btn-mail { font-size: 18px; padding: 20px; }
@@ -328,24 +411,30 @@
 <!-- HEADER -->
 <header>
     <div class="logo">
-        <div class="logo-ja">救命プラス</div>
-        <div class="logo-en">kyumei plus</div>
+        <img src="images/logo_透過.png" alt="救命プラス">
     </div>
     <a href="https://line.me/R/ti/p/%40213gebho" class="header-cta">💬 無料相談</a>
 </header>
 
 <!-- HERO -->
 <div class="hero">
-    <div class="hero-badge">📍 西三河を中心に愛知県全域対応</div>
-    <h1>知らないと後悔する。<br>住まいに潜む「5つの危険」</h1>
-    <p>転倒・転落・ヒートショック——<br>看護師が長年の現場経験から見つけた、<br>家の中に潜む危険を診断します。</p>
-    <a href="https://line.me/R/ti/p/%40213gebho" class="btn-line-lg">💬 LINEで無料相談する</a>
+    <div class="hero-inner">
+        <div class="hero-text">
+            <div class="hero-badge">📍 西三河を中心に愛知県全域対応</div>
+            <h1>知らないと後悔する。<br>住まいに潜む「5つの危険」</h1>
+            <p>転倒・転落・ヒートショック——<br>看護師が長年の現場経験から見つけた、<br>家の中に潜む危険を診断します。</p>
+            <a href="https://line.me/R/ti/p/%40213gebho" class="btn-line-lg">💬 LINEで無料相談する</a>
+        </div>
+        <div class="hero-img">
+            <img src="images/main_pc.jpg" alt="高齢者に寄り添う住宅改修">
+        </div>
+    </div>
 </div>
 
-<!-- 5 DANGERS -->
-<section style="background: #fff5f5; padding: 52px 24px;">
-    <h2 class="sec-title" style="color: #c0392b;">住まいに潜む「3つの危険」</h2>
-    <p class="sec-en" style="color: #e08080;">3 HIDDEN DANGERS IN YOUR HOME</p>
+<!-- 3 DANGERS -->
+<section class="dangers">
+    <h2 class="danger-sec-title">住まいに潜む「3つの危険」</h2>
+    <p class="danger-sec-en">3 HIDDEN DANGERS IN YOUR HOME</p>
     <p style="text-align:center; font-size:14px; color:#666; margin-bottom:8px; line-height:1.9;">
         看護師として高齢者施設に長年勤務してきた代表が、<br>
         「この危険を知っていれば防げた」と感じた3つのポイントです。
@@ -389,8 +478,9 @@
 
 <!-- REASONS -->
 <section class="reasons">
-    <h2 class="sec-title">選ばれる3つの理由</h2>
-    <p class="sec-en">WHY KYUMEI PLUS</p>
+    <div class="sec-head-img">
+        <img src="images/head8.png" alt="私たちが選ばれる理由">
+    </div>
     <div class="inner">
         <div class="reason-list">
             <div class="reason-card">
@@ -420,9 +510,13 @@
 
 <!-- SERVICES -->
 <section class="services">
-    <h2 class="sec-title">サービス内容</h2>
-    <p class="sec-en">SERVICES</p>
+    <div class="sec-head-img">
+        <img src="images/head2.png" alt="サービス紹介">
+    </div>
     <div class="inner">
+        <div class="service-visual">
+            <img src="images/top_img2.jpg" alt="住宅改修サービス">
+        </div>
         <div class="service-list">
             <div class="service-card">
                 <h3>🚿 バリアフリー改修</h3>
@@ -446,8 +540,9 @@
 
 <!-- FLOW -->
 <section class="flow">
-    <h2 class="sec-title">ご利用の流れ</h2>
-    <p class="sec-en">FLOW</p>
+    <div class="sec-head-img">
+        <img src="images/head7.png" alt="ご利用までの流れ">
+    </div>
     <div class="inner">
         <div class="flow-list">
             <div class="flow-step">
@@ -491,43 +586,49 @@
 
 <!-- PROFILE -->
 <section class="profile">
-    <h2 class="sec-title">代表・スタッフ紹介</h2>
-    <p class="sec-en">ABOUT US</p>
+    <div class="sec-head-img">
+        <img src="images/head1.png" alt="救命プラスについて">
+    </div>
     <div class="inner">
         <div class="profile-card">
-            <div class="profile-row">
-                <div class="avatar">👩</div>
-                <div>
-                    <div class="profile-name">代表</div>
-                    <div class="profile-role">救命プラス　｜　看護師・介護福祉士</div>
-                </div>
+            <div class="profile-img-banner">
+                <img src="images/top_img5.jpg" alt="医療・救急の専門知識を住宅改修に活かす">
             </div>
-            <p class="profile-text">
-                看護師・介護職として長年、高齢者施設に勤務してまいりました。現場で日々感じていたのは、「住まいの環境さえ整っていれば、防げた事故がある」という現実です。<br><br>
-                医療・介護の知識をもとに、ご高齢の方やそのご家族が安心して暮らせる住まいづくりを支援したい——その思いから救命プラスを立ち上げました。医療現場で培った対人対応力とホスピタリティで、お客様に寄り添った丁寧なサービスをお届けします。
-            </p>
-            <hr class="divider">
-            <div class="staff-row">
-                <div class="avatar">
-                    <!-- 似顔絵画像があればここに: <img src="似顔絵.png" alt="スタッフ"> -->
-                    <span>👤</span>
+            <div class="profile-content">
+                <div class="profile-row">
+                    <div class="avatar">👩</div>
+                    <div>
+                        <div class="profile-name">代表</div>
+                        <div class="profile-role">救命プラス　｜　看護師・介護福祉士</div>
+                    </div>
                 </div>
-                <div>
-                    <div class="staff-name">施工担当スタッフ</div>
-                    <div class="staff-role">医療・介護現場経験者</div>
+                <p class="profile-text">
+                    看護師・介護職として長年、高齢者施設に勤務してまいりました。現場で日々感じていたのは、「住まいの環境さえ整っていれば、防げた事故がある」という現実です。<br><br>
+                    医療・介護の知識をもとに、ご高齢の方やそのご家族が安心して暮らせる住まいづくりを支援したい——その思いから救命プラスを立ち上げました。医療現場で培った対人対応力とホスピタリティで、お客様に寄り添った丁寧なサービスをお届けします。
+                </p>
+                <hr class="divider">
+                <div class="staff-row">
+                    <div class="avatar">
+                        <span>👤</span>
+                    </div>
+                    <div>
+                        <div class="staff-name">施工担当スタッフ</div>
+                        <div class="staff-role">医療・介護現場経験者</div>
+                    </div>
                 </div>
+                <p class="staff-text">
+                    医療・介護の現場で長年にわたり住宅内事故と向き合ってきた経験を活かし、「防げる事故を防ぐ」改修をご提案します。感覚ではなく根拠に基づいた、安心できるリフォームをお届けします。
+                </p>
             </div>
-            <p class="staff-text">
-                医療・介護の現場で長年にわたり住宅内事故と向き合ってきた経験を活かし、「防げる事故を防ぐ」改修をご提案します。感覚ではなく根拠に基づいた、安心できるリフォームをお届けします。
-            </p>
         </div>
     </div>
 </section>
 
 <!-- AREA -->
 <section class="area">
-    <h2 class="sec-title">対応エリア</h2>
-    <p class="sec-en">SERVICE AREA</p>
+    <div class="sec-head-img">
+        <img src="images/head3.png" alt="対応エリア">
+    </div>
     <div class="inner">
         <div class="area-main">西三河を中心に愛知県全域</div>
         <p class="area-cities">
@@ -535,13 +636,17 @@
             碧南市・西尾市・高浜市・幸田町 など<br>
             <span style="font-size:12px;">※その他エリアもお気軽にご相談ください</span>
         </p>
+        <div class="area-map">
+            <img src="images/map.png" alt="対応エリアマップ">
+        </div>
     </div>
 </section>
 
 <!-- FAQ -->
 <section class="faq">
-    <h2 class="sec-title">よくあるご質問</h2>
-    <p class="sec-en">FAQ</p>
+    <div class="sec-head-img">
+        <img src="images/head6.png" alt="よくある質問">
+    </div>
     <div class="inner">
         <div class="faq-list">
             <div class="faq-item">
@@ -570,8 +675,8 @@
 
 <!-- LINE BENEFIT -->
 <section style="background: #fff9e6; padding: 52px 24px; text-align: center;">
-    <h2 class="sec-title">📋 LINE登録で無料プレゼント</h2>
-    <p class="sec-en">LINE GIFT</p>
+    <h2 style="text-align:center; font-size:22px; font-weight:900; color:var(--blue); margin-bottom:6px;">📋 LINE登録で無料プレゼント</h2>
+    <p style="text-align:center; font-size:11px; color:#aaa; letter-spacing:3px; margin-bottom:32px;">LINE GIFT</p>
     <div class="inner">
         <div style="background: white; border-radius: 16px; padding: 28px 24px; border: 2px solid var(--yellow);">
             <div style="font-size: 48px; margin-bottom: 12px;">🏠</div>
@@ -591,7 +696,9 @@
 
 <!-- CONTACT -->
 <div class="contact">
-    <h2>まずは無料でご相談ください</h2>
+    <div class="contact-head-img">
+        <img src="images/head5.png" alt="お問い合わせ">
+    </div>
     <p>「どんな工事が必要かわからない」<br>「費用がどれくらいかかるか知りたい」<br>どんなご相談も、お気軽にどうぞ。</p>
     <div class="contact-btns">
         <a href="https://line.me/R/ti/p/%40213gebho" class="btn-line">💬 LINEで無料相談する</a>
