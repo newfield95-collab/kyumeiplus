@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>救命プラス | 西三河・愛知県の住宅改修専門</title>
+    <meta name="description" content="医療・介護現場の経験を持つスタッフが、事故の起きない住まいをご提案。西三河を中心に愛知県全域対応。補助金活用もサポート。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif; color: #333; line-height: 1.6; }
+
+        :root {
+            --blue: #1a6eb5;
+            --blue-light: #e8f2fc;
+            --green-line: #06c755;
+            --yellow: #f5c842;
+            --text: #333;
+            --gray: #666;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background: white;
+            padding: 14px 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { line-height: 1.2; }
+        .logo-ja { font-size: 20px; font-weight: 900; color: var(--blue); }
+        .logo-en { font-size: 10px; color: #aaa; letter-spacing: 3px; }
+        .header-cta {
+            background: var(--green-line);
+            color: white;
+            padding: 10px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            background: linear-gradient(160deg, var(--blue-light) 0%, #fff 70%);
+            padding: 56px 24px 48px;
+            text-align: center;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--yellow);
+            color: #333;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--blue);
+            line-height: 1.5;
+            margin-bottom: 18px;
+        }
+        .hero p {
+            font-size: 15px;
+            color: var(--gray);
+            line-height: 1.9;
+            margin-bottom: 32px;
+        }
+        .btn-line-lg {
+            display: inline-block;
+            background: var(--green-line);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 17px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(6,199,85,0.35);
+        }
+
+        /* ========== SECTION BASE ========== */
+        section { padding: 52px 24px; }
+        .sec-title {
+            text-align: center;
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--blue);
+            margin-bottom: 6px;
+        }
+        .sec-en {
+            text-align: center;
+            font-size: 11px;
+            color: #aaa;
+            letter-spacing: 3px;
+            margin-bottom: 32px;
+        }
+        .inner { max-width: 640px; margin: 0 auto; }
+
+        /* ========== REASONS ========== */
+        .reasons { background: white; }
+        .reason-list { display: flex; flex-direction: column; gap: 14px; }
+        .reason-card {
+            background: var(--blue-light);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .reason-num {
+            background: var(--blue);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .reason-card h3 { font-size: 16px; color: var(--blue); margin-bottom: 4px; }
+        .reason-card p { font-size: 13px; color: var(--gray); }
+
+        /* ========== SERVICES ========== */
+        .services { background: #f8f9fa; }
+        .service-list { display: flex; flex-direction: column; gap: 14px; }
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 20px 20px 24px;
+            border-left: 5px solid var(--blue);
+        }
+        .service-card h3 { font-size: 17px; color: var(--blue); margin-bottom: 8px; }
+        .service-card p { font-size: 13px; color: var(--gray); line-height: 1.8; }
+
+        /* ========== FLOW ========== */
+        .flow { background: white; }
+        .flow-list { display: flex; flex-direction: column; gap: 0; }
+        .flow-step {
+            display: flex;
+            gap: 18px;
+            align-items: flex-start;
+            padding: 16px 0;
+            position: relative;
+        }
+        .flow-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 17px;
+            top: 54px;
+            width: 2px;
+            height: calc(100% - 22px);
+            background: var(--blue-light);
+        }
+        .flow-num {
+            width: 36px;
+            height: 36px;
+            background: var(--blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+        .flow-step h3 { font-size: 16px; color: var(--blue); margin-bottom: 2px; }
+        .flow-step p { font-size: 13px; color: var(--gray); }
+
+        /* ========== PROFILE ========== */
+        .profile { background: #f8f9fa; }
+        .profile-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px 24px;
+        }
+        .profile-row {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--blue-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-name { font-size: 20px; font-weight: bold; color: var(--blue); }
+        .profile-role { font-size: 12px; color: #aaa; margin-top: 2px; }
+        .profile-text { font-size: 14px; color: var(--gray); line-height: 1.9; }
+        .divider { border: none; border-top: 1px solid #eee; margin: 24px 0; }
+        .staff-row {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .staff-name { font-size: 16px; font-weight: bold; }
+        .staff-role { font-size: 12px; color: #aaa; }
+        .staff-text { font-size: 13px; color: var(--gray); line-height: 1.9; }
+
+        /* ========== AREA ========== */
+        .area { background: white; text-align: center; }
+        .area-main { font-size: 24px; font-weight: bold; color: var(--blue); margin-bottom: 10px; }
+        .area-cities { font-size: 13px; color: var(--gray); line-height: 2; }
+
+        /* ========== FAQ ========== */
+        .faq { background: #f8f9fa; }
+        .faq-list { display: flex; flex-direction: column; gap: 12px; }
+        .faq-item { background: white; border-radius: 12px; overflow: hidden; }
+        .faq-q {
+            padding: 16px 20px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .q-mark { color: var(--blue); font-weight: bold; font-size: 18px; flex-shrink: 0; }
+        .faq-q span { font-size: 14px; font-weight: bold; padding-top: 1px; }
+        .faq-a {
+            background: var(--blue-light);
+            padding: 14px 20px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .a-mark { color: #7cb342; font-weight: bold; font-size: 18px; flex-shrink: 0; }
+        .faq-a span { font-size: 13px; color: var(--gray); line-height: 1.8; padding-top: 1px; }
+
+        /* ========== CONTACT ========== */
+        .contact {
+            background: var(--blue);
+            padding: 52px 24px;
+            text-align: center;
+        }
+        .contact h2 { color: white; font-size: 22px; margin-bottom: 10px; }
+        .contact p { color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.9; margin-bottom: 32px; }
+        .contact-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .btn-line {
+            background: var(--green-line);
+            color: white;
+            padding: 17px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .btn-mail {
+            background: white;
+            color: var(--blue);
+            padding: 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: #1a1a1a;
+            color: #888;
+            text-align: center;
+            padding: 28px 20px;
+            font-size: 12px;
+            line-height: 2;
+        }
+
+        /* ========== PC ========== */
+        @media (min-width: 640px) {
+            .hero h1 { font-size: 36px; }
+            .reason-list { flex-direction: row; flex-wrap: wrap; }
+            .reason-card { flex: 1; min-width: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">
+        <div class="logo-ja">救命プラス</div>
+        <div class="logo-en">kyumei plus</div>
+    </div>
+    <a href="https://line.me/R/ti/p/%40213gebho" class="header-cta">💬 無料相談</a>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-badge">📍 西三河を中心に愛知県全域対応</div>
+    <h1>知らないと後悔する。<br>住まいに潜む「5つの危険」</h1>
+    <p>転倒・転落・ヒートショック——<br>看護師が長年の現場経験から見つけた、<br>家の中に潜む危険を診断します。</p>
+    <a href="https://line.me/R/ti/p/%40213gebho" class="btn-line-lg">💬 LINEで無料相談する</a>
+</div>
+
+<!-- 5 DANGERS -->
+<section style="background: #fff5f5; padding: 52px 24px;">
+    <h2 class="sec-title" style="color: #c0392b;">住まいに潜む「3つの危険」</h2>
+    <p class="sec-en" style="color: #e08080;">3 HIDDEN DANGERS IN YOUR HOME</p>
+    <p style="text-align:center; font-size:14px; color:#666; margin-bottom:8px; line-height:1.9;">
+        看護師として高齢者施設に長年勤務してきた代表が、<br>
+        「この危険を知っていれば防げた」と感じた3つのポイントです。
+    </p>
+    <p style="text-align:center; font-size:12px; color:#aaa; margin-bottom:28px;">
+        ※消費者庁「高齢者の事故」・厚生労働省人口動態統計・名古屋市消防局救急統計 参照
+    </p>
+    <div class="inner">
+        <div style="display:flex; flex-direction:column; gap:14px;">
+            <div style="background:white; border-radius:12px; padding:20px; border-left:5px solid #e74c3c; display:flex; gap:16px; align-items:flex-start;">
+                <div style="font-size:28px; flex-shrink:0;">⚠️</div>
+                <div>
+                    <h3 style="font-size:16px; color:#c0392b; margin-bottom:6px;">危険①　転倒——住宅内事故のおよそ7割を占める最大の原因</h3>
+                    <p style="font-size:13px; color:#666; line-height:1.8;">消費者庁の調査では、65歳以上の家庭内事故死亡のうち転倒・転落が最多。玄関・廊下・浴室の小さな段差や滑りやすい床材が原因で、わずか1〜2cmの段差でも骨折・寝たきりにつながるケースがあります。</p>
+                </div>
+            </div>
+            <div style="background:white; border-radius:12px; padding:20px; border-left:5px solid #e74c3c; display:flex; gap:16px; align-items:flex-start;">
+                <div style="font-size:28px; flex-shrink:0;">🛁</div>
+                <div>
+                    <h3 style="font-size:16px; color:#c0392b; margin-bottom:6px;">危険②　転倒（浴室）——溺水・骨折につながる「濡れた床」の罠</h3>
+                    <p style="font-size:13px; color:#666; line-height:1.8;">浴室は転倒リスクが特に高い場所です。濡れた床・浴槽をまたぐ動作・手すりのない壁——これらが重なることで、重大事故が起きやすくなります。名古屋市消防局の救急統計でも、住宅内搬送の多くは浴室・トイレ周辺です。</p>
+                </div>
+            </div>
+            <div style="background:white; border-radius:12px; padding:20px; border-left:5px solid #e74c3c; display:flex; gap:16px; align-items:flex-start;">
+                <div style="font-size:28px; flex-shrink:0;">🌡️</div>
+                <div>
+                    <h3 style="font-size:16px; color:#c0392b; margin-bottom:6px;">危険③　ヒートショック——交通事故死亡者数の約4倍ともいわれる冬の脅威</h3>
+                    <p style="font-size:13px; color:#666; line-height:1.8;">暖かい居室から寒い脱衣所・浴室への移動による急激な温度変化が、心臓発作・脳卒中を引き起こします。国の推計では年間約19,000人が入浴中に急死しており、その多くが住宅の温度管理で防げるとされています。</p>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top:28px; background:#c0392b; border-radius:12px; padding:20px; text-align:center;">
+            <p style="color:white; font-size:15px; line-height:1.9; margin-bottom:16px;">
+                <strong>「うちは大丈夫」と思っていませんか？</strong><br>
+                まずは無料の自宅診断チェックシートで確認してみてください。
+            </p>
+            <a href="https://line.me/R/ti/p/%40213gebho" style="display:inline-block; background:white; color:#c0392b; padding:14px 28px; border-radius:50px; font-weight:bold; font-size:15px; text-decoration:none;">💬 LINEで無料チェックシートを受け取る</a>
+        </div>
+    </div>
+</section>
+
+<!-- REASONS -->
+<section class="reasons">
+    <h2 class="sec-title">選ばれる3つの理由</h2>
+    <p class="sec-en">WHY KYUMEI PLUS</p>
+    <div class="inner">
+        <div class="reason-list">
+            <div class="reason-card">
+                <div class="reason-num">1</div>
+                <div>
+                    <h3>看護師の代表が直接診断</h3>
+                    <p>高齢者施設で長年勤務した看護師の代表が、住宅のどこが危ないかを根拠を持って診断します。「感覚」ではなく「医療知識」からの提案です。</p>
+                </div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">2</div>
+                <div>
+                    <h3>補助金・助成金も提案</h3>
+                    <p>介護保険住宅改修費（最大18万円）など、使える制度をわかりやすくご案内します。</p>
+                </div>
+            </div>
+            <div class="reason-card">
+                <div class="reason-num">3</div>
+                <div>
+                    <h3>地域密着・丁寧対応</h3>
+                    <p>西三河を中心に愛知県全域対応。地元に根ざした誠実な施工をお約束します。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+    <h2 class="sec-title">サービス内容</h2>
+    <p class="sec-en">SERVICES</p>
+    <div class="inner">
+        <div class="service-list">
+            <div class="service-card">
+                <h3>🚿 バリアフリー改修</h3>
+                <p>浴室・トイレ・廊下など生活動線を安全に。段差解消・手すり設置・スロープ設置など、暮らしに合わせたリフォームをご提案します。</p>
+            </div>
+            <div class="service-card">
+                <h3>🏠 転倒・転落防止リフォーム</h3>
+                <p>住宅内事故の多くは転倒・転落です。現場経験をもとに「なぜここが危ないか」を根拠を持ってご説明し、的確な改修を行います。</p>
+            </div>
+            <div class="service-card">
+                <h3>🌡️ ヒートショック対策</h3>
+                <p>浴室暖房・断熱工事など、急激な温度変化による発作リスクを住宅環境から減らします。</p>
+            </div>
+            <div class="service-card">
+                <h3>💰 補助金・助成金の活用サポート</h3>
+                <p>介護保険住宅改修費（上限20万円）をはじめ、条件に合う支援制度の確認・申請サポートも行います。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow">
+    <h2 class="sec-title">ご利用の流れ</h2>
+    <p class="sec-en">FLOW</p>
+    <div class="inner">
+        <div class="flow-list">
+            <div class="flow-step">
+                <div class="flow-num">1</div>
+                <div>
+                    <h3>無料相談</h3>
+                    <p>LINEまたはメールでお気軽にご連絡ください。どんな小さなご相談も歓迎です。</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-num">2</div>
+                <div>
+                    <h3>現地調査（無料）</h3>
+                    <p>お住まいを実際に拝見し、危険箇所と改善ポイントをご説明します。</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-num">3</div>
+                <div>
+                    <h3>お見積り・ご提案</h3>
+                    <p>補助金の活用も含めた最適なプランと費用をご提示します。</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-num">4</div>
+                <div>
+                    <h3>施工</h3>
+                    <p>丁寧・迅速に施工いたします。お住まいを大切に扱います。</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-num">5</div>
+                <div>
+                    <h3>アフターフォロー</h3>
+                    <p>施工後も安心してお住まいいただけるようサポートします。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROFILE -->
+<section class="profile">
+    <h2 class="sec-title">代表・スタッフ紹介</h2>
+    <p class="sec-en">ABOUT US</p>
+    <div class="inner">
+        <div class="profile-card">
+            <div class="profile-row">
+                <div class="avatar">👩</div>
+                <div>
+                    <div class="profile-name">新田 久美子</div>
+                    <div class="profile-role">代表 / 救命プラス　｜　看護師・介護福祉士</div>
+                </div>
+            </div>
+            <p class="profile-text">
+                看護師・介護職として長年、高齢者施設に勤務してまいりました。現場で日々感じていたのは、「住まいの環境さえ整っていれば、防げた事故がある」という現実です。<br><br>
+                医療・介護の知識をもとに、ご高齢の方やそのご家族が安心して暮らせる住まいづくりを支援したい——その思いから救命プラスを立ち上げました。医療現場で培った対人対応力とホスピタリティで、お客様に寄り添った丁寧なサービスをお届けします。
+            </p>
+            <hr class="divider">
+            <div class="staff-row">
+                <div class="avatar">
+                    <!-- 似顔絵画像があればここに: <img src="似顔絵.png" alt="スタッフ"> -->
+                    <span>👤</span>
+                </div>
+                <div>
+                    <div class="staff-name">施工担当スタッフ</div>
+                    <div class="staff-role">医療・介護現場経験者</div>
+                </div>
+            </div>
+            <p class="staff-text">
+                医療・介護の現場で長年にわたり住宅内事故と向き合ってきた経験を活かし、「防げる事故を防ぐ」改修をご提案します。感覚ではなく根拠に基づいた、安心できるリフォームをお届けします。
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- AREA -->
+<section class="area">
+    <h2 class="sec-title">対応エリア</h2>
+    <p class="sec-en">SERVICE AREA</p>
+    <div class="inner">
+        <div class="area-main">西三河を中心に愛知県全域</div>
+        <p class="area-cities">
+            岡崎市・豊田市・安城市・刈谷市・知立市<br>
+            碧南市・西尾市・高浜市・幸田町 など<br>
+            <span style="font-size:12px;">※その他エリアもお気軽にご相談ください</span>
+        </p>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+    <h2 class="sec-title">よくあるご質問</h2>
+    <p class="sec-en">FAQ</p>
+    <div class="inner">
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-q"><span class="q-mark">Q</span><span>相談・現地調査は無料ですか？</span></div>
+                <div class="faq-a"><span class="a-mark">A</span><span>はい、初回のご相談・現地調査は無料です。お気軽にご連絡ください。</span></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><span class="q-mark">Q</span><span>補助金は使えますか？</span></div>
+                <div class="faq-a"><span class="a-mark">A</span><span>介護保険住宅改修費（上限20万円）など、条件によって利用できる制度があります。申請サポートも承っておりますので、お気軽にご相談ください。</span></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><span class="q-mark">Q</span><span>手すり1本だけの設置でも対応できますか？</span></div>
+                <div class="faq-a"><span class="a-mark">A</span><span>はい、小さな工事も承っています。「これだけで相談していいのか」とご遠慮なく、まずはお問い合わせください。</span></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><span class="q-mark">Q</span><span>愛知県以外でも対応できますか？</span></div>
+                <div class="faq-a"><span class="a-mark">A</span><span>基本的には愛知県内での対応となります。県外をご希望の場合もまずはご相談ください。</span></div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><span class="q-mark">Q</span><span>急いで相談したいのですが対応できますか？</span></div>
+                <div class="faq-a"><span class="a-mark">A</span><span>LINEからご連絡いただければ、できる限り迅速に対応いたします。</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LINE BENEFIT -->
+<section style="background: #fff9e6; padding: 52px 24px; text-align: center;">
+    <h2 class="sec-title">📋 LINE登録で無料プレゼント</h2>
+    <p class="sec-en">LINE GIFT</p>
+    <div class="inner">
+        <div style="background: white; border-radius: 16px; padding: 28px 24px; border: 2px solid var(--yellow);">
+            <div style="font-size: 48px; margin-bottom: 12px;">🏠</div>
+            <h3 style="font-size: 20px; color: var(--blue); margin-bottom: 12px;">自宅安全診断チェックシート</h3>
+            <p style="font-size: 14px; color: var(--gray); line-height: 1.9; margin-bottom: 24px;">
+                看護師が監修した「住宅内事故リスク診断シート」を無料プレゼント。<br>
+                玄関・浴室・トイレ・廊下・階段など<br>
+                場所ごとの危険ポイントをチェックできます。<br>
+                <strong style="color: var(--blue);">「まず自分で確認したい」方にもおすすめです。</strong>
+            </p>
+            <a href="https://line.me/R/ti/p/%40213gebho" class="btn-line-lg" style="display:inline-block;">
+                💬 LINEを登録してシートを受け取る
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact">
+    <h2>まずは無料でご相談ください</h2>
+    <p>「どんな工事が必要かわからない」<br>「費用がどれくらいかかるか知りたい」<br>どんなご相談も、お気軽にどうぞ。</p>
+    <div class="contact-btns">
+        <a href="https://line.me/R/ti/p/%40213gebho" class="btn-line">💬 LINEで無料相談する</a>
+        <a href="mailto:kyumeiplus@gmail.com" class="btn-mail">✉️ メールで問い合わせる</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>救命プラス（kyumei plus）</p>
+    <p>代表：新田 久美子　｜　対応エリア：西三河を中心に愛知県全域</p>
+    <p style="margin-top:8px;">© 2025 救命プラス All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
