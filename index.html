@@ -126,8 +126,8 @@
             font-size: 16px;
             flex-shrink: 0;
         }
-        .reason-card h3 { font-size: 16px; color: var(--blue); margin-bottom: 4px; }
-        .reason-card p { font-size: 13px; color: var(--gray); }
+        .reason-card h3 { font-size: 16px; color: var(--blue); margin-bottom: 10px; }
+        .reason-card p { font-size: 13px; color: var(--gray); line-height: 2; }
 
         /* ========== SERVICES ========== */
         .services { background: #f8f9fa; }
@@ -289,9 +289,37 @@
 
         /* ========== PC ========== */
         @media (min-width: 640px) {
-            .hero h1 { font-size: 36px; }
-            .reason-list { flex-direction: row; flex-wrap: wrap; }
-            .reason-card { flex: 1; min-width: 180px; }
+            body { font-size: 17px; }
+            header { padding: 18px 60px; }
+            .logo-ja { font-size: 26px; }
+            .header-cta { font-size: 15px; padding: 12px 24px; }
+            .hero { padding: 90px 40px 80px; }
+            .hero h1 { font-size: 48px; }
+            .hero p { font-size: 18px; }
+            .hero-badge { font-size: 14px; padding: 6px 20px; }
+            .btn-line-lg { font-size: 20px; padding: 22px 52px; }
+            section { padding: 72px 40px; }
+            .sec-title { font-size: 30px; }
+            .sec-en { font-size: 13px; margin-bottom: 40px; }
+            .inner { max-width: 860px; }
+            .reason-list { flex-direction: row; flex-wrap: wrap; gap: 20px; }
+            .reason-card { flex: 1; min-width: 220px; padding: 28px; }
+            .reason-card h3 { font-size: 18px; margin-bottom: 10px; }
+            .reason-card p { font-size: 15px; line-height: 2; }
+            .reason-num { width: 44px; height: 44px; font-size: 20px; }
+            .service-card { padding: 28px 28px 28px 32px; }
+            .service-card h3 { font-size: 20px; margin-bottom: 12px; }
+            .service-card p { font-size: 15px; line-height: 2; }
+            .flow-step h3 { font-size: 18px; }
+            .flow-step p { font-size: 15px; line-height: 2; }
+            .profile-name { font-size: 24px; }
+            .profile-text { font-size: 16px; }
+            .staff-text { font-size: 15px; }
+            .faq-q span, .faq-a span { font-size: 16px; }
+            .contact h2 { font-size: 30px; }
+            .contact p { font-size: 16px; }
+            .btn-line, .btn-mail { font-size: 18px; padding: 20px; }
+            .contact-btns { max-width: 400px; }
         }
     </style>
 </head>
@@ -470,8 +498,8 @@
             <div class="profile-row">
                 <div class="avatar">👩</div>
                 <div>
-                    <div class="profile-name">新田 久美子</div>
-                    <div class="profile-role">代表 / 救命プラス　｜　看護師・介護福祉士</div>
+                    <div class="profile-name">代表</div>
+                    <div class="profile-role">救命プラス　｜　看護師・介護福祉士</div>
                 </div>
             </div>
             <p class="profile-text">
@@ -574,7 +602,7 @@
 <!-- FOOTER -->
 <footer>
     <p>救命プラス（kyumei plus）</p>
-    <p>代表：新田 久美子　｜　対応エリア：西三河を中心に愛知県全域</p>
+    <p>対応エリア：西三河を中心に愛知県全域</p>
     <p style="margin-top:8px;">© 2025 救命プラス All Rights Reserved.</p>
 </footer>
 
