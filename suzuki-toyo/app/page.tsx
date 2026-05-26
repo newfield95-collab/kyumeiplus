@@ -1,3 +1,4 @@
+import DemoBanner from "@/components/DemoBanner";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Problems from "@/components/Problems";
@@ -11,6 +12,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
+      <DemoBanner />
       <Header />
       <main>
         <Hero />
