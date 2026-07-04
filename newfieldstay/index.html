@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWFIELD STAY | 民泊・一棟貸しの宿</title>
+    <meta name="description" content="NEWFIELD STAY(ニューフィールドステイ)は、暮らすように泊まれる一棟貸しの民泊です。ご家族・グループでの旅行、ワーケーション、長期滞在まで、快適な滞在をお約束します。">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --ink: #2b2620;
+            --ink-soft: #5c554b;
+            --cream: #faf7f2;
+            --sand: #f1ebe1;
+            --wood: #a67c52;
+            --wood-deep: #7c5a38;
+            --accent: #2f6f5e;
+            --accent-light: #e4efeb;
+            --line: #e3dccf;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+            color: var(--ink);
+            line-height: 1.8;
+            background: var(--cream);
+        }
+
+        img { max-width: 100%; display: block; }
+        a { color: inherit; }
+
+        .inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ========== DEMO BANNER ========== */
+        .demo-banner {
+            background: var(--ink);
+            color: #fff;
+            text-align: center;
+            font-size: 12px;
+            padding: 8px 16px;
+            letter-spacing: 0.05em;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background: rgba(250, 247, 242, 0.95);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        .brand {
+            text-decoration: none;
+            line-height: 1.3;
+        }
+        .brand .en {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+        }
+        .brand .ja {
+            font-size: 10px;
+            color: var(--ink-soft);
+            letter-spacing: 0.3em;
+        }
+        nav ul {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+        nav a {
+            text-decoration: none;
+            font-size: 14px;
+            color: var(--ink-soft);
+        }
+        nav a:hover { color: var(--wood-deep); }
+        .header-cta {
+            background: var(--accent);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+        .header-cta:hover { opacity: 0.85; }
+        @media (max-width: 760px) {
+            nav { display: none; }
+        }
+
+        /* ========== HERO ========== */
+        .hero {
+            position: relative;
+            min-height: 72vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background:
+                linear-gradient(rgba(30, 25, 18, 0.45), rgba(30, 25, 18, 0.55)),
+                linear-gradient(155deg, #8a6a4a 0%, #5d4630 45%, #3c3020 100%);
+            /* 写真が用意でき次第、下の1行を有効化してください
+            background-image: linear-gradient(rgba(30,25,18,.35), rgba(30,25,18,.5)), url('images/hero.jpg');
+            */
+            background-size: cover;
+            background-position: center;
+            padding: 80px 24px;
+        }
+        .hero-content { max-width: 720px; }
+        .hero .tagline {
+            font-size: clamp(24px, 5vw, 40px);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            line-height: 1.6;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+        }
+        .hero .sub {
+            margin-top: 20px;
+            font-size: clamp(13px, 2.5vw, 16px);
+            letter-spacing: 0.08em;
+            opacity: 0.95;
+        }
+        .hero .brand-mark {
+            font-size: 13px;
+            letter-spacing: 0.4em;
+            margin-bottom: 24px;
+            opacity: 0.9;
+        }
+        .hero-cta {
+            display: inline-block;
+            margin-top: 36px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            padding: 15px 44px;
+            border-radius: 999px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .hero-cta:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        /* ========== SECTION COMMON ========== */
+        section { padding: 72px 0; }
+        .section-head {
+            text-align: center;
+            margin-bottom: 44px;
+        }
+        .section-head .en {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 0.3em;
+            color: var(--wood);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .section-head h2 {
+            font-size: clamp(22px, 4vw, 30px);
+            letter-spacing: 0.08em;
+        }
+
+        /* ========== CONCEPT ========== */
+        .concept { background: var(--cream); }
+        .concept-lead {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 48px;
+            font-size: 15px;
+            color: var(--ink-soft);
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .feature {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .feature .icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+        }
+        .feature h3 {
+            font-size: 17px;
+            margin-bottom: 10px;
+            letter-spacing: 0.05em;
+        }
+        .feature p {
+            font-size: 13.5px;
+            color: var(--ink-soft);
+            text-align: left;
+        }
+        @media (max-width: 760px) {
+            .features { grid-template-columns: 1fr; }
+        }
+
+        /* ========== ROOMS ========== */
+        .rooms { background: var(--sand); }
+        .room-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .room-photo {
+            aspect-ratio: 4 / 3;
+            border-radius: 14px;
+            background: linear-gradient(145deg, #c9b295 0%, #a68a67 60%, #8a7050 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.85);
+            font-size: 13px;
+            letter-spacing: 0.15em;
+        }
+        .room-detail h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+        }
+        .room-detail p {
+            font-size: 14px;
+            color: var(--ink-soft);
+            margin-bottom: 20px;
+        }
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .spec-table th, .spec-table td {
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+        }
+        .spec-table th {
+            width: 34%;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+        .spec-table tr:last-child th,
+        .spec-table tr:last-child td { border-bottom: none; }
+        @media (max-width: 760px) {
+            .room-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ========== AMENITIES ========== */
+        .amenity-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+        .amenity {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 16px 12px;
+            text-align: center;
+            font-size: 13px;
+        }
+        .amenity .a-icon {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        @media (max-width: 760px) {
+            .amenity-list { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* ========== GALLERY ========== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+        .gallery-item {
+            aspect-ratio: 1 / 1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.85);
+            font-size: 12px;
+            letter-spacing: 0.12em;
+        }
+        .gallery-item:nth-child(1) { background: linear-gradient(140deg, #b99a76, #8f7351); }
+        .gallery-item:nth-child(2) { background: linear-gradient(140deg, #7e9b8f, #5a7a6c); }
+        .gallery-item:nth-child(3) { background: linear-gradient(140deg, #c8b9a2, #9d8c72); }
+        .gallery-item:nth-child(4) { background: linear-gradient(140deg, #8d9aa8, #66788a); }
+        .gallery-item:nth-child(5) { background: linear-gradient(140deg, #b98f76, #8f6a51); }
+        .gallery-item:nth-child(6) { background: linear-gradient(140deg, #a2b5a0, #75907a); }
+        @media (max-width: 760px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* ========== PRICE ========== */
+        .price { background: var(--sand); }
+        .price-card {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 40px 32px;
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .price-card .amount {
+            font-size: clamp(28px, 6vw, 40px);
+            font-weight: 700;
+            color: var(--wood-deep);
+            letter-spacing: 0.02em;
+        }
+        .price-card .amount small {
+            font-size: 14px;
+            color: var(--ink-soft);
+            font-weight: normal;
+        }
+        .price-note {
+            margin-top: 14px;
+            font-size: 13px;
+            color: var(--ink-soft);
+        }
+        .booking-buttons {
+            margin-top: 28px;
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .booking-buttons a {
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 14px 32px;
+            border-radius: 999px;
+            transition: opacity 0.2s;
+        }
+        .booking-buttons a:hover { opacity: 0.85; }
+        .btn-airbnb { background: #ff5a5f; color: #fff; }
+        .btn-booking { background: #003580; color: #fff; }
+        .btn-direct { background: var(--accent); color: #fff; }
+
+        /* ========== ACCESS ========== */
+        .access-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+        .access-map {
+            aspect-ratio: 4 / 3;
+            border-radius: 14px;
+            background: linear-gradient(140deg, #dde5dc, #c3d1c5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ink-soft);
+            font-size: 13px;
+            letter-spacing: 0.1em;
+        }
+        @media (max-width: 760px) {
+            .access-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ========== RULES / FAQ ========== */
+        .rules { background: var(--sand); }
+        .faq-item {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            margin-bottom: 14px;
+            overflow: hidden;
+        }
+        .faq-item summary {
+            cursor: pointer;
+            padding: 18px 22px;
+            font-weight: bold;
+            font-size: 14.5px;
+            list-style: none;
+            position: relative;
+            padding-right: 44px;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: "+";
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--wood);
+            font-size: 20px;
+        }
+        .faq-item[open] summary::after { content: "−"; }
+        .faq-item .answer {
+            padding: 0 22px 18px;
+            font-size: 14px;
+            color: var(--ink-soft);
+        }
+        .faq-item summary .q-mark,
+        .faq-item .answer .a-mark {
+            display: inline-block;
+            font-weight: bold;
+            color: var(--accent);
+            margin-right: 8px;
+        }
+
+        /* ========== CONTACT ========== */
+        .contact {
+            background: linear-gradient(160deg, var(--wood-deep), #4d3a24);
+            color: #fff;
+            text-align: center;
+        }
+        .contact .section-head h2 { color: #fff; }
+        .contact .section-head .en { color: #d8bd9c; }
+        .contact p { font-size: 14.5px; opacity: 0.95; }
+        .contact .booking-buttons { margin-top: 32px; }
+        .contact .btn-direct {
+            background: #fff;
+            color: var(--wood-deep);
+        }
+        .contact .tel {
+            margin-top: 24px;
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--ink);
+            color: #cfc8bd;
+            text-align: center;
+            padding: 32px 20px;
+            font-size: 12px;
+        }
+        footer .f-brand {
+            font-size: 15px;
+            letter-spacing: 0.2em;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="demo-banner">※ このページは NEWFIELD STAY 専用のデモサイトです。写真・料金・住所などは仮の内容です。</div>
+
+<header>
+    <div class="header-inner">
+        <a class="brand" href="#">
+            <div class="en">NEWFIELD STAY</div>
+            <div class="ja">ニューフィールドステイ</div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#concept">コンセプト</a></li>
+                <li><a href="#rooms">お部屋</a></li>
+                <li><a href="#gallery">ギャラリー</a></li>
+                <li><a href="#price">ご料金</a></li>
+                <li><a href="#access">アクセス</a></li>
+                <li><a href="#faq">よくある質問</a></li>
+            </ul>
+        </nav>
+        <a class="header-cta" href="#price">ご予約はこちら</a>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="hero-content">
+        <div class="brand-mark">NEWFIELD STAY</div>
+        <h1 class="tagline">暮らすように、泊まる。</h1>
+        <p class="sub">ご家族やグループでゆったり過ごせる、一棟貸しの民泊です。<br>
+        観光の拠点に、ワーケーションに、帰ってきたくなる「もうひとつの家」を。</p>
+        <a class="hero-cta" href="#price">空室状況を見る</a>
+    </div>
+</div>
+
+<section class="concept" id="concept">
+    <div class="inner">
+        <div class="section-head">
+            <span class="en">CONCEPT</span>
+            <h2>NEWFIELD STAY が選ばれる理由</h2>
+        </div>
+        <p class="concept-lead">
+            ホテルとは違う、「その土地で暮らす」体験を。<br>
+            キッチンも、リビングも、まるごと貸切。自分たちのペースで過ごせる宿です。
+        </p>
+        <div class="features">
+            <div class="feature">
+                <div class="icon">🏠</div>
+                <h3>一棟まるごと貸切</h3>
+                <p>他のお客様と顔を合わせることなく、プライベートな空間でお過ごしいただけます。小さなお子様連れでも周りを気にせずゆっくりと。</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🍳</div>
+                <h3>キッチン&生活設備完備</h3>
+                <p>調理器具・食器・洗濯機を完備。地元の食材を買ってきて料理したり、長期滞在でも「暮らすように」過ごせます。</p>
+            </div>
+            <div class="feature">
+                <div class="icon">🔑</div>
+                <h3>セルフチェックイン</h3>
+                <p>スマートロックによる非対面チェックインに対応。到着が遅くなっても大丈夫。ご自身のペースでチェックインできます。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="rooms" id="rooms">
+    <div class="inner">
+        <div class="section-head">
+            <span class="en">ROOMS</span>
+            <h2>お部屋のご案内</h2>
+        </div>
+        <div class="room-grid">
+            <div class="room-photo">ROOM PHOTO(写真差し替え予定)</div>
+            <div class="room-detail">
+                <h3>ゆとりのある間取りで、最大6名様まで</h3>
+                <p>リビング・ダイニングを中心に、寝室2部屋を備えた一棟貸しの住宅です。ご家族の旅行から友人同士のグループ旅行まで、幅広くご利用いただけます。</p>
+                <table class="spec-table">
+                    <tr><th>定員</th><td>最大 6名様</td></tr>
+                    <tr><th>間取り</th><td>2LDK(寝室2・リビングダイニング)</td></tr>
+                    <tr><th>寝具</th><td>ダブルベッド1台・シングルベッド2台・布団2組</td></tr>
+                    <tr><th>チェックイン</th><td>15:00 〜 22:00(セルフチェックイン)</td></tr>
+                    <tr><th>チェックアウト</th><td>〜 10:00</td></tr>
+                    <tr><th>駐車場</th><td>敷地内 2台まで無料</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <div style="margin-top:56px;">
+            <div class="section-head" style="margin-bottom:28px;">
+                <span class="en">AMENITIES</span>
+                <h2 style="font-size:20px;">設備・アメニティ</h2>
+            </div>
+            <div class="amenity-list">
+                <div class="amenity"><div class="a-icon">📶</div>無料Wi-Fi</div>
+                <div class="amenity"><div class="a-icon">❄️</div>エアコン完備</div>
+                <div class="amenity"><div class="a-icon">🍳</div>キッチン・調理器具</div>
+                <div class="amenity"><div class="a-icon">🧺</div>洗濯機・乾燥機</div>
+                <div class="amenity"><div class="a-icon">🛁</div>バス・トイレ別</div>
+                <div class="amenity"><div class="a-icon">🧴</div>シャンプー・タオル類</div>
+                <div class="amenity"><div class="a-icon">📺</div>テレビ・動画配信対応</div>
+                <div class="amenity"><div class="a-icon">🚗</div>無料駐車場</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="gallery" id="gallery">
+    <div class="inner">
+        <div class="section-head">
+            <span class="en">GALLERY</span>
+            <h2>ギャラリー</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">LIVING</div>
+            <div class="gallery-item">BEDROOM</div>
+            <div class="gallery-item">KITCHEN</div>
+            <div class="gallery-item">BATH</div>
+            <div class="gallery-item">EXTERIOR</div>
+            <div class="gallery-item">AREA</div>
+        </div>
+        <p style="text-align:center; margin-top:20px; font-size:12.5px; color:var(--ink-soft);">※ 写真は準備中です。実際のお部屋の写真に差し替え予定です。</p>
+    </div>
+</section>
+
+<section class="price" id="price">
+    <div class="inner">
+        <div class="section-head">
+            <span class="en">PRICE / RESERVATION</span>
+            <h2>ご料金・ご予約</h2>
+        </div>
+        <div class="price-card">
+            <div class="amount">¥15,000<small> 〜 / 1棟1泊(税込)</small></div>
+            <p class="price-note">
+                ※ 料金は時期・人数により変動します。最新の料金と空室状況は各予約サイトをご確認ください。<br>
+                ※ 連泊・長期滞在の割引もございます。お気軽にご相談ください。
+            </p>
+            <div class="booking-buttons">
+                <a class="btn-airbnb" href="#" target="_blank" rel="noopener">Airbnbで予約</a>
+                <a class="btn-booking" href="#" target="_blank" rel="noopener">Booking.comで予約</a>
+                <a class="btn-direct" href="#contact">直接問い合わせる</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="access" id="access">
+    <div class="inner">
+        <div class="section-head">
+            <span class="en">ACCESS</span>
+            <h2>アクセス</h2>
+        </div>
+        <div class="access-grid">
+            <div class="access-map">MAP(Googleマップ埋め込み予定)</div>
+            <div>
+                <table class="spec-table">
+                    <tr><th>施設名</th><td>NEWFIELD STAY(ニューフィールドステイ)</td></tr>
+                    <tr><th>所在地</th><td>〒000-0000 ○○県○○市○○町0-0-0<br><small>※ 詳細な住所はご予約確定後にご案内します</small></td></tr>
+                    <tr><th>お車で</th><td>○○ICから約○分/無料駐車場2台</td></tr>
+                    <tr><th>電車で</th><td>○○線「○○駅」から徒歩約○分</td></tr>
+                    <tr><th>周辺情報</th><td>コンビニ 徒歩○分/スーパー 車で○分/○○観光地まで車で○分</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="rules" id="faq">
+    <div class="inner">
+        <div class="section-head">
+            <span class="en">FAQ / HOUSE RULES</span>
+            <h2>よくある質問・ハウスルール</h2>
+        </div>
+        <details class="faq-item">
+            <summary><span class="q-mark">Q.</span>チェックインの方法を教えてください。</summary>
+            <div class="answer"><span class="a-mark">A.</span>スマートロックによるセルフチェックインです。ご予約確定後、チェックイン方法と暗証番号をメッセージでご案内します。</div>
+        </details>
+        <details class="faq-item">
+            <summary><span class="q-mark">Q.</span>子ども連れでも利用できますか?</summary>
+            <div class="answer"><span class="a-mark">A.</span>はい、お子様連れも大歓迎です。一棟貸切ですので、周囲を気にせずお過ごしいただけます。</div>
+        </details>
+        <details class="faq-item">
+            <summary><span class="q-mark">Q.</span>ペットは同伴できますか?</summary>
+            <div class="answer"><span class="a-mark">A.</span>申し訳ございませんが、ペットの同伴はご遠慮いただいております。</div>
+        </details>
+        <details class="faq-item">
+            <summary><span class="q-mark">Q.</span>喫煙はできますか?</summary>
+            <div class="answer"><span class="a-mark">A.</span>建物内は全面禁煙です。屋外の指定場所での喫煙をお願いしています。</div>
+        </details>
+        <details class="faq-item">
+            <summary><span class="q-mark">Q.</span>騒音などのルールはありますか?</summary>
+            <div class="answer"><span class="a-mark">A.</span>住宅街に位置するため、22時以降は大きな音を控えていただくようお願いしています。パーティーでのご利用はご遠慮ください。</div>
+        </details>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <div class="inner">
+        <div class="section-head">
+            <span class="en">CONTACT</span>
+            <h2>お問い合わせ</h2>
+        </div>
+        <p>ご予約前のご質問、長期滞在のご相談など、お気軽にお問い合わせください。</p>
+        <div class="booking-buttons">
+            <a class="btn-direct" href="mailto:info@example.com">メールで問い合わせる</a>
+        </div>
+        <p class="tel">お電話でのお問い合わせ:000-0000-0000(受付 9:00〜18:00)</p>
+    </div>
+</section>
+
+<footer>
+    <div class="f-brand">NEWFIELD STAY</div>
+    <p>© NEWFIELD STAY All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
